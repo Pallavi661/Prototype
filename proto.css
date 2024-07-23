@@ -1,0 +1,219 @@
+/* Existing CSS code */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar .nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: blue;
+}
+
+.navbar .nav-links a:active {
+    color: purple;
+}
+
+.navbar .cart {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navbar .cart img {
+    width: 40px;
+    height: 40px;
+    transition: filter 0.3s;
+}
+
+.navbar .cart span {
+    margin-left: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.navbar .cart:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.navbar .cart:hover span {
+    color: blue;
+}
+
+.navbar .cart:active img {
+    filter: hue-rotate(270deg);
+}
+
+.navbar .cart:active span {
+    color: purple;
+}
+
+/* Dropdown Menu Styles */
+.nav-item {
+    position: relative;
+}
+
+.nav-item .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.nav-item .dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-item .dropdown a:hover {
+    background-color: #ddd;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+/* Ensure dropdown doesn't break the navbar layout */
+.nav-links {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+/* Flex Container and Boxes */
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;  /* Ensure boxes are on one line */
+    justify-content: space-around;
+    overflow-x: auto;  /* Allow horizontal scrolling if needed */
+    margin: 20px 0;
+}
+
+.flex-box {
+    position: relative;
+    width: 200px;  /* Adjust width as needed */
+    margin: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.flex-box:hover {
+    transform: scale(1.05);
+}
+
+.activity-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.name {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, opacity 0.3s;
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.flex-box:hover .activity-image {
+    opacity: 1;
+}
+
+.flex-box:hover .name {
+    transform: translateY(200%);
+    opacity: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar .nav-links a {
+        margin: 10px 0;
+    }
+
+    .nav-item .dropdown {
+        position: static;
+    }
+
+    .flex-box {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .navbar .cart span {
+        font-size: 14px;
+    }
+
+    .flex-box {
+        width: 100px;
+    }
+}
